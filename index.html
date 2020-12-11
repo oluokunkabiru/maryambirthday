@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARYAM OKUNOLA BIRTHDAY</title>
+    <link rel="stylesheet" href="bootsrap/bootstrap.min.css">
+    <style>
+        .container{
+            background-image: url('images/IMG_0314.jpeg');
+            background-size: 100%;
+            width:100%;
+            height: 100vh;
+            /* width: 100vw; */
+            background-repeat: no-repeat;
+           
+        }
+
+        .content{
+          background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0 , 0.5));
+          width: 100%;
+          position:absolute;
+          top: 70%;
+          left: 0;
+          right: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content{
+                top: 40%;
+                left:0;
+                right:0;
+                 /* position: relative; */
+               
+            }
+            .content h5{
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body id="b" onclick="enableAutoplay()">
+    <div class="container mt-4" id="slide">
+        <div class="content text-center text-light">
+            <h1 class="p-2 font-weight-bold text-center"><span class="bg-primary p-2 text-warning">Happy</span> <span class="bg-warning p-2 text-primary">Birthday</span></h1>
+            <h2 class="font-weight-bold"><span class="typewrite text-capitalize" data-period="2000"
+                data-type='["my boss","my co programmer","my one and only alhaja","the tallest among us",  "miss. Okunola mariam", "i wish you many more", "in good health", "wealth",
+                "happiness", "you will never regret", "many happy return in insha allah"]'></span></h2>
+                <h5 class="p-3 font-weight-bold"><span class="text-uppercase bg-warning text-primary p-2">by</span><span class="text-warning bg-primary p-2">Oluokun Kabiru Adesina (Village boy)</span></h4>
+        </div>
+    </div>
+    
+     <!-- <embed src="images/HBD.mp3" loop="true" autostart="true" width="100" height="100"> -->
+        <audio controls id="hbd" hidden>
+            <source src="images/HBD.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio>
+          <!-- <button onclick=" " id="b">ok</button> -->
+         
+        </body>
+      
+</html>
+<script src="bootsrap/jquery.js"></script>
+<script>
+            function enableAutoplay() { 
+                 var x = document.getElementById("hbd");
+                // x.autoplay = true;
+                x.play();
+            }
+            
+           $(document).ready(function(){
+            $('#b').click();   
+           });
+
+$(document).ready(setInterval(slider, 2000));
+  function slider(){
+    var imag = ['images/IMG_0307.jpeg', 'images/IMG_0311.jpeg','images/IMG_0313.jpeg','images/IMG_0332.jpeg', 'images/IMG_0333.jpeg',  'images/IMG_0331.jpeg',  'images/IMG_0314.jpeg',  'images/IMG_0312.jpeg', 'images/IMG_0311.jpeg', 'images/IMG_0328.jpeg', 'images/IMG_0329.jpeg',  ];
+    var ok = document.getElementById('slide');
+    var image = imag.sort(function(a, b){return 0.5 - Math.random()});
+    ok.style.backgroundImage = "url('"+image[0]+"')";
+    ok.style.backgroundSize = "100%";
+    ok.style.backgroundRepeat ="no-repeat"; 
+    
+  }
+  function year(){
+  var y = document.getElementById('y');
+  var d = new Date();
+  y.innerHTML = d.getFullYear();
+  }
+  $(document).ready(year);
+
+
+    (function($) {
+
+
+"use strict";
+
+
+
+      
+var TxtType = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+  }
+
+  setTimeout(function() {
+      that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+   
+  var elements = document.getElementsByClassName('typewrite');
+for (var i = 0; i < elements.length; i++) {
+//  var ok= ["Saab", "Volvo", "BMW"];
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  document.body.appendChild(css);
+};
+})(jQuery);
+</script>

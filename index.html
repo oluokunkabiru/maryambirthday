@@ -74,8 +74,8 @@
 
 $(document).ready(setInterval(slider, 2000));
   function slider(){
-    var imag = ['images/IMG_0307.jpeg','images/IMG_0311.jpeg', 'images/IMG_0313.jpeg'];
-    // , 'images/IMG_0332.jpeg', 'images/IMG_0333.jpeg',  'images/IMG_0331.jpeg',  'images/IMG_0314.jpeg',  'images/IMG_0312.jpeg', 'images/IMG_0311.jpeg', 'images/IMG_0328.jpeg', 'images/IMG_0329.jpeg'
+    var imag = ['images/IMG_0307.jpeg', 'images/IMG_0311.jpeg',  'images/IMG_0312.jpeg',  'images/IMG_0314.jpeg',  'images/IMG_0331.jpeg', 'images/IMG_0333.jpeg','images/IMG_0311.jpeg', 'images/IMG_0313.jpeg', 'images/IMG_0332.jpeg'];
+    // , 'images/IMG_0328.jpeg', 'images/IMG_0329.jpeg'
     var ok = document.getElementById('slides');
     var image = imag.sort(function(a, b){return 0.5 - Math.random()});
     ok.style.backgroundImage = "url('"+image[0]+"')";
